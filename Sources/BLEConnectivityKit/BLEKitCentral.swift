@@ -21,7 +21,7 @@ public class BLECentral<T: Codable>: NSObject, CBCentralManagerDelegate, CBPerip
     
     public func scanForPeripherals() {
         let options: [String: Any] = [CBCentralManagerScanOptionAllowDuplicatesKey: false]
-        manager.scanForPeripherals(withServices: [CBUUID(string: identifiers.getBatteryServiceUUID().uuidString)], options: options)
+        manager.scanForPeripherals(withServices: [identifiers.getConfigurationServiceUUID()], options: options)
     }
     
     public func connect(at index: Int) {
